@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.Collections.Generic;
 
 namespace Testcraft
 {
@@ -24,8 +25,12 @@ namespace Testcraft
 
             button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
             */
+            List<String> lst = new List<string>();
+            for (int i=0; i<100;i++) {
+                lst.AddRange(new String[] { "LesMiselables25", "LesMiselables24" });
+            }
             ListView lv = new ListView(this);
-            lv.Adapter = new MyListAdapter(this, new String[] { "LesMiselables25", "LesMiselables24" });
+            lv.Adapter = new MyListAdapter(this, lst.ToArray());
             SetContentView(lv);
         }
 
